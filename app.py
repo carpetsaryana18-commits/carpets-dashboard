@@ -21,6 +21,10 @@ if uploaded_file:
         "Current Status"
     ]
 
+    # Convert numeric columns to numbers
+    df["Cost (BHD)"] = pd.to_numeric(df["Cost (BHD)"], errors="coerce").fillna(0)
+    df["Selling Price (BHD)"] = pd.to_numeric(df["Selling Price (BHD)"], errors="coerce").fillna(0)
+
     st.subheader("📋 Data Preview")
     st.dataframe(df)
 
